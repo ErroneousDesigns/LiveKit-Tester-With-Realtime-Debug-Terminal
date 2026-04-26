@@ -3,6 +3,7 @@ import { useParticipants, useRoomContext, useConnectionState } from '@livekit/co
 import { Terminal, X, Minimize2, Maximize2, Trash2 } from 'lucide-react';
 import { RoomTheme } from '../utils/livekit';
 import { ConnectionState } from 'livekit-client';
+import { Video, Settings, PlayCircle, Shield, Users, Eye, Disc } from 'lucide-react';
 
 interface DebugLog {
   id: string;
@@ -654,7 +655,9 @@ export function DebugTerminal({ theme, participantName, participantMode }: Debug
             {participantMode === 'streamer' ? 'OUTBOUND' : 'INBOUND'}
           </div>
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            <div className="w-2 h-2 rounded-full text-red-500 animate-ping">
+            <Disc className="w-8 h-8 animate-ping text-red-500" />
+            </div>
             <span>LIVE</span>
           </div>
         </div>

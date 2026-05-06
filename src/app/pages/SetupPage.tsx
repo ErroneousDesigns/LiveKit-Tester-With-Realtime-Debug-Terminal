@@ -455,7 +455,7 @@ export function SetupPage() {
             >
               Erroneous Holdings LLC
             </a>{" "}
-            •<br></br>• (- Building Your World, Your Way!™ -) •
+            •<br></br>• (- Designing Your World, Your Way!™ -) •
           </p>
         </div>
       </div>

@@ -243,9 +243,11 @@ export function SetupPage() {
               // Token Server Mode
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Token Server URL 
+                  Token Server URL
                   <br></br>
-                  (NOTE: Firebase Functions URL Is Accepted But First You Must Disable Authenticate In The Function)
+                  (NOTE: Firebase Functions URL Is Accepted But
+                  First You Must Disable Authenticate In The
+                  Function)
                 </label>
                 <input
                   type="text"
@@ -256,8 +258,8 @@ export function SetupPage() {
                   required={config.useTokenServer}
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  Otherwise your token server should accept POST requests with
-                  room, identity, and name fields
+                  Otherwise your token server should accept POST
+                  requests with room, identity, and name fields
                 </p>
               </div>
             ) : (
@@ -444,6 +446,7 @@ export function SetupPage() {
             • Copyright ©{" "}
             <a
               href="http://erroneous.biz"
+              target="_blank"
               className="text-black hover:text-blue-500 hover:underline"
             >
               Erroneous Designs
@@ -451,11 +454,13 @@ export function SetupPage() {
             2026 • All Rights Reserved ®{" "}
             <a
               href="http://erroneous.biz"
+              target="_blank"
               className="text-purple-500 hover:text-green-500 hover:underline"
             >
               Erroneous Holdings LLC
             </a>{" "}
-            •<br></br>• (- Designing Your World, Your Way!™ -) •
+            •<br></br>• (- Designing Your World, Your Way!™ -)
+            •
           </p>
         </div>
       </div>

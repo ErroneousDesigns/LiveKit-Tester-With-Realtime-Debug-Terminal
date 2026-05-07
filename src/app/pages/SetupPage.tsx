@@ -114,13 +114,13 @@ export function SetupPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <div className="flex items-start gap-2">
-              <Settings className="w-5 h-5 text-blue-600 mt-0.5" />
+              <Settings className="w-5 h-5 text-black mt-0.5" />
               <div className="text-sm text-blue-800">
                 <p className="font-medium mb-1">
-                  Testing Configuration
+                  LiveKit Testing Configuration
                 </p>
-                <p className="text-blue-700">
-                  Enter your LiveKit server details below. Your
+                <p className="text-black">
+                  Enter the LiveKit server details below. All
                   credentials are stored locally in your
                   browser.
                 </p>
@@ -199,7 +199,7 @@ export function SetupPage() {
                   </div>
                 </button>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-red-500 mt-2 text-center">
                 Switching modes will generate a new random
                 username
               </p>
@@ -209,7 +209,7 @@ export function SetupPage() {
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-gray-700" />
+                  <Shield className="w-3 h-3 text-bold text-blue-500 animate-ping" />
                   <span className="font-medium text-gray-900">
                     Token Generation Mode
                   </span>
@@ -234,8 +234,8 @@ export function SetupPage() {
               </div>
               <p className="text-sm text-gray-600">
                 {config.useTokenServer
-                  ? "Using token server (recommended for production)"
-                  : "Client-side generation (quick testing only)*"}
+                  ? "Server-side token generation server (recommended for production)"
+                  : "Client-side token generation server (quick testing)*"}
               </p>
             </div>
 
@@ -245,9 +245,12 @@ export function SetupPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Token Server URL
                   <br></br>
-                  (NOTE: Firebase Functions URL Is Accepted But
-                  First You Must Disable Authenticate In The
-                  Function)
+                  <br></br>
+                  <p className="text-xs text-red-700 text-center">
+                    ⚠️ A Firebase Functions URL Is Acceptable
+                    But You Must First Disable "Authenticate" In
+                    The Function. ⚠️
+                  </p>
                 </label>
                 <input
                   type="text"
@@ -258,8 +261,8 @@ export function SetupPage() {
                   required={config.useTokenServer}
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  Otherwise your token server should accept POST
-                  requests with room, identity, and name fields
+                  Non-Firebase token servers must accept POST
+                  requests with Room, Identity, & Name fields
                 </p>
               </div>
             ) : (
@@ -304,7 +307,7 @@ export function SetupPage() {
                   type="text"
                   value={config.roomName}
                   onChange={handleChange("roomName")}
-                  placeholder="test-room"
+                  placeholder="Test-Room"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
                   required
                 />
@@ -312,7 +315,7 @@ export function SetupPage() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Name
+                  Username
                 </label>
                 <div className="relative">
                   <input

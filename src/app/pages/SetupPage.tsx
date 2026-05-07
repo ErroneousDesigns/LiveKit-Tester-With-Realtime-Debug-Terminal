@@ -101,10 +101,10 @@ export function SetupPage() {
             <Video className="w-8 h-8 animate-pulse text-yellow-400" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-red-500 to-green-500 bg-clip-text text-transparent">
               LiveKit Tester
             </h1>
-            <p className="text-gray-600">
+            <p className="font-bold bg-gradient-to-l from-blue-500 via-red-500 to-green-500 bg-clip-text text-transparent">
               Quick configuration testing tool with debug
               terminal
             </p>

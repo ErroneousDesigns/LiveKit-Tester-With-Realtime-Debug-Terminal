@@ -1,7 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { useDataChannel } from '@livekit/components-react';
-import { Send, MessageSquare, Settings as SettingsIcon, X } from 'lucide-react';
-import { RoomTheme } from '../utils/livekit';
+import { useState, useEffect, useRef } from "react";
+import { useDataChannel } from "@livekit/components-react";
+import {
+  Send,
+  MessageSquare,
+  Settings as SettingsIcon,
+  X,
+} from "lucide-react";
+import { RoomTheme } from "../utils/livekit";
 
 interface ChatMessage {
   id: string;
@@ -15,9 +20,12 @@ interface LiveKitChatProps {
   participantName: string;
 }
 
-export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
+export function LiveKitChat({
+  theme,
+  participantName,
+}: LiveKitChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isExpanded, setIsExpanded] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [chatTheme, setChatTheme] = useState({
@@ -27,23 +35,25 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const dataChannel = useDataChannel('chat', (data) => {
+  const dataChannel = useDataChannel("chat", (data) => {
     try {
       if (data?.payload) {
         const decoded = new TextDecoder().decode(data.payload);
         const msg = JSON.parse(decoded) as ChatMessage;
-        console.log('[Chat] Message received:', msg);
+        console.log("[Chat] Message received:", msg);
         setMessages((prev) => [...prev, msg]);
       }
     } catch (err) {
-      console.error('[Chat] Failed to decode message:', err);
+      console.error("[Chat] Failed to decode message:", err);
     }
   });
 
   const send = dataChannel?.send;
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   }, [messages]);
 
   const handleSend = () => {
@@ -57,19 +67,24 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
     };
 
     try {
-      const encoded = new TextEncoder().encode(JSON.stringify(message));
+      const encoded = new TextEncoder().encode(
+        JSON.stringify(message),
+      );
       send(encoded);
       setMessages((prev) => [...prev, message]);
-      console.log('[Chat] Message sent:', message);
-      setInput('');
+      console.log("[Chat] Message sent:", message);
+      setInput("");
     } catch (err) {
-      console.error('[Chat] Failed to send message:', err);
+      console.error("[Chat] Failed to send message:", err);
     }
   };
 
   const formatTime = (timestamp: number) => {
     const date = new Date(timestamp);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   };
 
   if (!isExpanded) {
@@ -79,7 +94,10 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
         className="fixed bottom-4 right-4 rounded-full shadow-lg p-4 transition-all hover:scale-110"
         style={{ backgroundColor: theme.primaryColor }}
       >
-        <MessageSquare className="w-6 h-6" style={{ color: theme.textColor }} />
+        <MessageSquare
+          className="w-6 h-6"
+          style={{ color: theme.textColor }}
+        />
       </button>
     );
   }
@@ -89,7 +107,7 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
       className="flex flex-col h-full border-l"
       style={{
         backgroundColor: theme.backgroundColor,
-        borderColor: theme.primaryColor + '40',
+        borderColor: theme.primaryColor + "40",
       }}
     >
       {/* Header */}
@@ -97,17 +115,26 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
         className="flex items-center justify-between px-4 py-3 border-b"
         style={{
           backgroundColor: theme.primaryColor,
-          borderColor: theme.primaryColor + '80',
+          borderColor: theme.primaryColor + "80",
         }}
       >
         <div className="flex items-center gap-2">
-          <MessageSquare className="w-5 h-5" style={{ color: theme.textColor }} />
-          <h3 className="font-semibold" style={{ color: theme.textColor }}>
+          <MessageSquare
+            className="w-5 h-5"
+            style={{ color: theme.textColor }}
+          />
+          <h3
+            className="font-semibold"
+            style={{ color: theme.textColor }}
+          >
             Chat
           </h3>
           <span
             className="text-xs px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: theme.textColor + '20', color: theme.textColor }}
+            style={{
+              backgroundColor: theme.textColor + "20",
+              color: theme.textColor,
+            }}
           >
             {messages.length}
           </span>
@@ -117,13 +144,19 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
             onClick={() => setShowSettings(!showSettings)}
             className="p-1.5 rounded hover:bg-white/10 transition"
           >
-            <SettingsIcon className="w-4 h-4" style={{ color: theme.textColor }} />
+            <SettingsIcon
+              className="w-4 h-4"
+              style={{ color: theme.textColor }}
+            />
           </button>
           <button
             onClick={() => setIsExpanded(false)}
             className="p-1.5 rounded hover:bg-white/10 transition"
           >
-            <X className="w-4 h-4" style={{ color: theme.textColor }} />
+            <X
+              className="w-4 h-4"
+              style={{ color: theme.textColor }}
+            />
           </button>
         </div>
       </div>
@@ -132,10 +165,13 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
       {showSettings && (
         <div
           className="p-3 border-b space-y-2"
-          style={{ borderColor: theme.primaryColor + '40' }}
+          style={{ borderColor: theme.primaryColor + "40" }}
         >
           <div className="flex items-center justify-between">
-            <label className="text-xs" style={{ color: theme.textColor + 'cc' }}>
+            <label
+              className="text-xs"
+              style={{ color: theme.textColor + "cc" }}
+            >
               Font Size
             </label>
             <input
@@ -143,38 +179,71 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
               min="12"
               max="18"
               value={chatTheme.fontSize}
-              onChange={(e) => setChatTheme({ ...chatTheme, fontSize: Number(e.target.value) })}
+              onChange={(e) =>
+                setChatTheme({
+                  ...chatTheme,
+                  fontSize: Number(e.target.value),
+                })
+              }
               className="w-24"
             />
           </div>
           <div className="flex items-center justify-between">
-            <label className="text-xs" style={{ color: theme.textColor + 'cc' }}>
+            <label
+              className="text-xs"
+              style={{ color: theme.textColor + "cc" }}
+            >
               Show Timestamps
             </label>
             <button
-              onClick={() => setChatTheme({ ...chatTheme, showTimestamps: !chatTheme.showTimestamps })}
+              onClick={() =>
+                setChatTheme({
+                  ...chatTheme,
+                  showTimestamps: !chatTheme.showTimestamps,
+                })
+              }
               className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors`}
-              style={{ backgroundColor: chatTheme.showTimestamps ? theme.accentColor : theme.textColor + '40' }}
+              style={{
+                backgroundColor: chatTheme.showTimestamps
+                  ? theme.accentColor
+                  : theme.textColor + "40",
+              }}
             >
               <span
                 className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                  chatTheme.showTimestamps ? 'translate-x-5' : 'translate-x-1'
+                  chatTheme.showTimestamps
+                    ? "translate-x-5"
+                    : "translate-x-1"
                 }`}
               />
             </button>
           </div>
           <div className="flex items-center justify-between">
-            <label className="text-xs" style={{ color: theme.textColor + 'cc' }}>
+            <label
+              className="text-xs"
+              style={{ color: theme.textColor + "cc" }}
+            >
               Compact Mode
             </label>
             <button
-              onClick={() => setChatTheme({ ...chatTheme, compactMode: !chatTheme.compactMode })}
+              onClick={() =>
+                setChatTheme({
+                  ...chatTheme,
+                  compactMode: !chatTheme.compactMode,
+                })
+              }
               className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors`}
-              style={{ backgroundColor: chatTheme.compactMode ? theme.accentColor : theme.textColor + '40' }}
+              style={{
+                backgroundColor: chatTheme.compactMode
+                  ? theme.accentColor
+                  : theme.textColor + "40",
+              }}
             >
               <span
                 className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                  chatTheme.compactMode ? 'translate-x-5' : 'translate-x-1'
+                  chatTheme.compactMode
+                    ? "translate-x-5"
+                    : "translate-x-1"
                 }`}
               />
             </button>
@@ -186,7 +255,10 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
       <div className="flex-1 overflow-y-auto p-4 space-y-2">
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
-            <p className="text-sm opacity-50" style={{ color: theme.textColor }}>
+            <p
+              className="text-sm opacity-50"
+              style={{ color: theme.textColor }}
+            >
               No messages yet
             </p>
           </div>
@@ -194,25 +266,33 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
           messages.map((msg) => (
             <div
               key={msg.id}
-              className={`rounded-lg ${chatTheme.compactMode ? 'p-2' : 'p-3'}`}
-              style={{ backgroundColor: theme.primaryColor + '20' }}
+              className={`rounded-lg ${chatTheme.compactMode ? "p-2" : "p-3"}`}
+              style={{
+                backgroundColor: theme.primaryColor + "20",
+              }}
             >
               <div className="flex items-baseline gap-2">
                 <span
-                  className={`font-medium ${chatTheme.compactMode ? 'text-xs' : 'text-sm'}`}
+                  className={`font-medium ${chatTheme.compactMode ? "text-xs" : "text-sm"}`}
                   style={{ color: theme.accentColor }}
                 >
                   {msg.sender}
                 </span>
                 {chatTheme.showTimestamps && (
-                  <span className="text-xs opacity-60" style={{ color: theme.textColor }}>
+                  <span
+                    className="text-xs opacity-60"
+                    style={{ color: theme.textColor }}
+                  >
                     {formatTime(msg.timestamp)}
                   </span>
                 )}
               </div>
               <p
-                className={`mt-1 ${chatTheme.compactMode ? 'text-xs' : 'text-sm'}`}
-                style={{ color: theme.textColor, fontSize: `${chatTheme.fontSize}px` }}
+                className={`mt-1 ${chatTheme.compactMode ? "text-xs" : "text-sm"}`}
+                style={{
+                  color: theme.textColor,
+                  fontSize: `${chatTheme.fontSize}px`,
+                }}
               >
                 {msg.message}
               </p>
@@ -225,18 +305,20 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
       {/* Input */}
       <div
         className="p-3 border-t"
-        style={{ borderColor: theme.primaryColor + '40' }}
+        style={{ borderColor: theme.primaryColor + "40" }}
       >
         <div className="flex gap-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+            onKeyPress={(e) =>
+              e.key === "Enter" && handleSend()
+            }
             placeholder="Type a message..."
             className="flex-1 px-3 py-2 rounded-lg outline-none"
             style={{
-              backgroundColor: theme.primaryColor + '20',
+              backgroundColor: theme.primaryColor + "20",
               color: theme.textColor,
             }}
           />
@@ -246,7 +328,10 @@ export function LiveKitChat({ theme, participantName }: LiveKitChatProps) {
             className="px-4 py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90"
             style={{ backgroundColor: theme.accentColor }}
           >
-            <Send className="w-4 h-4" style={{ color: theme.textColor }} />
+            <Send
+              className="w-4 h-4"
+              style={{ color: theme.textColor }}
+            />
           </button>
         </div>
       </div>

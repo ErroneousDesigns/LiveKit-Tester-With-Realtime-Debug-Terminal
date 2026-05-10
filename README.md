@@ -142,7 +142,7 @@ npm run dev
 ### Multi-Window Testing
 
 - **From Setup Page**: "Open Multiple Viewer Windows/Tabs" to launch concurrent viewers
-- **From Viewer Room**: Click "Streamer" to open a streamer window/ta
+- **From Viewer Room**: Click "Streamer" to open a streamer window/tab
 
 ### Debug Terminal
 

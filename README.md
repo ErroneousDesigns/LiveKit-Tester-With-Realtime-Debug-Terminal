@@ -272,6 +272,9 @@ Contributions are welcome! Please ensure:
 
 Copyright © Erroneous Designs 2026 - Designing Your World, Your Way!
 
+Errroneous Designs is a daughter company of:
+Erroneous Holdings LLC - https://erroneous.biz
+
 ## Credits
 
 Built with:

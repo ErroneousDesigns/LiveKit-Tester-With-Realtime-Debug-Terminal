@@ -57,7 +57,7 @@ A comprehensive LiveKit testing application built with React, TypeScript, and Ta
 
 ### 🪟 Multi-Window Testing
 
-- **Setup Page**: Open multiple viewer tabs with one click
+- **Setup Page**: Open multiple viewer windows/tabs
 - **Streamer Room**:
   - Open single viewer window/tab
   - Open multiple viewer windows/tabs for load testing

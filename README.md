@@ -2,6 +2,10 @@
 
 A comprehensive LiveKit testing application built with React, TypeScript, and Tailwind CSS. This tool enables quick configuration testing for LiveKit streaming with real-time debugging capabilities, multiple participant modes, and fully customizable themes.
 
+Want to test it without cloning? 
+
+Click Here: https://erroneous.dev
+
 ## Features
 
 ### 🎥 Dual Participant Modes
@@ -266,7 +270,7 @@ Contributions are welcome! Please ensure:
 
 ## License
 
-Copyright © Erroneous Designs 2026
+Copyright © Erroneous Designs 2026 - Designing Your World, Your Way!
 
 ## Credits
 

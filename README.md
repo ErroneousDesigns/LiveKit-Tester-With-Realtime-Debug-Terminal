@@ -74,45 +74,21 @@ A comprehensive LiveKit testing application built with React, TypeScript, and Ta
 
 ## Screenshots
 
-### Setup Page
+![](Screenshots/Screenshot%202026-04-25%20005058.png)
 
-![Setup Configuration](Screenshots/Screenshot%202026-04-25%20005058.png)
-_Configure LiveKit credentials, select participant mode, and customize theme_
+![](Screenshots/Screenshot%202026-04-25%20005736.png)
 
-### Setup - Theme Customization
+![](Screenshots/Screenshot%202026-05-09%20214540.png)
 
-![Theme Customizer](Screenshots/Screenshot%202026-04-25%20005736.png)
-_Real-time theme editing with color pickers_
+![](Screenshots/Screenshot%202026-05-09%20214701.png)
 
-### Streamer Room - Main View
+![](Screenshots/Screenshot%202026-05-09%20214730.png)
 
-![Streamer Main View](Screenshots/Screenshot%202026-05-09%20214540.png)
-_Streamer mode with video controls and overlay chat_
+![](Screenshots/Screenshot%202026-05-09%20214750.png)
 
-### Debug Terminal - Collapsed
+![](Screenshots/Screenshot%202026-05-09%20215210.png)
 
-![Debug Terminal Collapsed](Screenshots/Screenshot%202026-05-09%20214701.png)
-_Compact debug terminal button showing key stats_
-
-### Debug Terminal - Expanded
-
-![Debug Terminal Expanded](Screenshots/Screenshot%202026-05-09%20214730.png)
-_Full debug terminal with real-time statistics and event logs_
-
-### Debug Terminal - Filters
-
-![Debug Terminal Filters](Screenshots/Screenshot%202026-05-09%20214750.png)
-_Filterable log types and stream statistics panel_
-
-### Multi-Window Testing
-
-![Multiple Viewers](Screenshots/Screenshot%202026-05-09%20215210.png)
-_Multiple viewer windows for concurrent connection testing_
-
-### Viewer Mode
-
-![Viewer Mode](Screenshots/Screenshot%202026-05-09%20215232.png)
-_Viewer mode interface with inbound stream monitoring_
+![](Screenshots/Screenshot%202026-05-09%20215232.png)
 
 ## Tech Stack
 

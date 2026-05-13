@@ -7,6 +7,7 @@ import {
   Shield,
   Users,
   Eye,
+  Bug,
 } from "lucide-react";
 import {
   LiveKitConfig,
@@ -17,6 +18,7 @@ import {
   loadTheme,
   DEFAULT_THEME,
 } from "../utils/livekit";
+import { LuBug } from "react-icons/lu";
 
 const generateRandomUsername = (
   mode: "streamer" | "viewer",
@@ -462,8 +464,13 @@ export function SetupPage() {
             >
               Erroneous Holdings LLC
             </a>{" "}
-            •<br></br>• (- Designing Your World, Your Way!™ -)
-            •
+            •<br></br>• Designing Your World, Your Way!™ •
+            <br></br>
+            <Bug 
+              href="https://github.com/ErroneousDesigns/LiveKit-Tester-With-Realtime-Debug-Terminal"
+              target="_blank"
+              className="flex text-right w-4 h-4 text-black hover:text-red-500 animate-bounce"
+              />
           </p>
         </div>
       </div>

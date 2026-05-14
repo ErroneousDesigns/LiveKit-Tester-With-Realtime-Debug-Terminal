@@ -7,7 +7,7 @@ import {
   Shield,
   Users,
   Eye,
-  Bug,
+  Fingerprint,
 } from "lucide-react";
 import {
   LiveKitConfig,
@@ -466,10 +466,10 @@ export function SetupPage() {
             </a>{" "}
             •<br></br>• Designing Your World, Your Way!™ •
             <br></br>
-            <Bug 
+            <Fingerprint
               href="https://github.com/ErroneousDesigns/LiveKit-Tester-With-Realtime-Debug-Terminal"
               target="_blank"
-              className="flex text-right w-4 h-4 text-black hover:text-red-500 animate-bounce"
+              className="flex text-left hover:w-25 hover:h-25 text-black hover:text-blue-500 hover:animate-ping"
               />
           </p>
         </div>

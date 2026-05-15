@@ -469,7 +469,7 @@ export function SetupPage() {
             <Fingerprint
               href="https://github.com/ErroneousDesigns/LiveKit-Tester-With-Realtime-Debug-Terminal"
               target="_blank"
-              className="flex text-left hover:w-25 hover:h-25 text-black hover:text-blue-500 hover:animate-ping"
+              className="flex text-left animate-bounce hover:w-25 hover:h-25 text-black hover:text-blue-500 hover:animate-ping"
               />
           </p>
         </div>
